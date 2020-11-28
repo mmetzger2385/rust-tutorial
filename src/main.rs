@@ -18,9 +18,15 @@ fn main() {
 
         io::stdin().read_line(&mut guess).expect("Failed to read line");
 
-        count = count + 1;
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("That's not even a number!");
+                continue;
+            }
+        };
 
-        let guess: u32 = guess.trim().parse().expect("Please enter a number!");
+        count = count + 1;
 
         println!("You guessed: {}", guess);
 
