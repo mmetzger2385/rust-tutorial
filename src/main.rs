@@ -75,6 +75,28 @@ fn game_loop(low: u32, high: u32){
         }
     }
 
+    interpret_results(count);
+
     println!("It took you {} guesses!", count);
+
+}
+
+fn interpret_results(count: i32){
+
+    //---arrays---//
+    //arrays cannot change size
+    let guess_count_arr: [i32; 3] = [2, 5, 8];
+
+    //---tuples--//
+    //just copying an array into a tuple, for no good reason.
+    let guess_count = (guess_count_arr[0], guess_count_arr[1], guess_count_arr[2]);
+
+    //destructuring
+    let (low, medium, high) = guess_count;
+
+    //direct reference
+    let low_guess = guess_count.0;
+    let medium_guess = guess_count.1;
+    let high_guess = guess_count.2;
 
 }
